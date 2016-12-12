@@ -1,13 +1,13 @@
 import numpy as np
 
 def fone():
-    def g(a,b):
-        return np.log(1 - np.log(a*(1-a)*b*(1-b)))
+    def g(p):
+        return np.log(1 - np.log(p[0]*(1-p[0])*p[1]*(1-p[1])))
     return g
 
 def ftwo():
-    def g(a,b):
-        return arctan(-np.log(a*(1-a)*b*(1-b)))
+    def g(p):
+        return arctan(-np.log(p[0]*(1-p[0])*p[1]*(1-p[1])))
     return g
 
 def fslide():
@@ -16,13 +16,13 @@ def fslide():
     return g
     
 def gfone():
-    def gradiente(a,b):
-        return np.array([(2*a-1)/((a-1)*a*(np.log((a-1)*a*(b-1)*b)-1)), (2*b-1)/((b-1)*b*(np.log((a-1)*a*(b-1)*b)-1))])
+    def gradiente(p):
+        return np.array([(2*p[0]-1)/((p[0]-1)*p[0]*(np.log((p[0]-1)*p[0]*(p[1]-1)*p[1])-1)), (2*p[1]-1)/((p[1]-1)*p[1]*(np.log((p[0]-1)*p[0]*(p[1]-1)*p[1])-1))])
     return gradiente
 
 def gftwo():
-    def gradiente(a,b):
-        return np.array([(1-2*a)/((a-1)*a*(np.log((a-1)*a*(b-1)*b)**2+1)), (1-2*b)/((b-1)*b*(np.log((a-1)*a*(b-1)*b)**2+1))])
+    def gradiente(p):
+        return np.array([(1-2*p[0])/((p[0]-1)*p[0]*(np.log((p[0]-1)*p[0]*(p[1]-1)*p[1])**2+1)), (1-2*p[1])/((p[1]-1)*p[1]*(np.log((p[0]-1)*p[0]*(p[1]-1)*p[1])**2+1))])
     return gradiente
 
 def gfslide():
