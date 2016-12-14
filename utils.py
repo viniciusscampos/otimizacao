@@ -1,3 +1,5 @@
+import csv
+
 def isclose(x,tol):
     """Recebe um array e uma tolerancia e retorna true se todos os elementos do array forem <= tol e false caso contrário"""
     for element in x:
@@ -11,7 +13,13 @@ def invert_array_signal(x):
     for element in x:
         r.append(-element)
     return r
-        
+
+def calculate_error(a,b):
+    r = [0]*len(a)
+    for i in range(len(a)):
+        r[i] = abs(a[i]-b[i])
+    return r
+       
 def dot(x,y):
     """Recebe dois vetores (arrays) e retorna o produto escalar entre eles."""
     s = 0
@@ -110,3 +118,12 @@ def csvDictionaryConstruct(a,b):
     for i in range(len(a)):
         d[a[i]] = b[i]
     return d 
+
+def construct_gradient_csv(csv_absolute_path,csv_header,csv_results):
+    """Função criada para construção e escrita no csv"""
+    with open(csv_absolute_path,'w') as csvfile:
+        writer = csv.DictWriter(csvfile,fieldnames=csv_header)
+        
+        writer.writeheader()   
+        for i in range(len(csv_results)):
+            writer.writerow(csvDictionaryConstruct(csv_header,csv_results[i]))

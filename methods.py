@@ -21,18 +21,18 @@ def get_q(gf,x_a,x_p):
     """Recebe dois vetores (x_k e x_k+1) e a derivada da função e retorna um vetor que é a diferença entre as derivadas."""
     return sum_vectors(gf(x_p),gf(x_a))
     
-def gradient_method(f,gf,x0,n,y,num_interations=1000,tol=1e-8):
+def gradient_method(f,gf,x0,n,y,expected_value,num_interations=1000):
     k = 0
     xk = x0
-    while(not isclose(gf(xk),tol) and k<num_interations):
+    while(not isclose(gf(xk),1e-8) and k < num_interations):
         dk = invert_array_signal(gf(xk))
         tk = armijo(f,gf,xk,dk,n,y)
         xprox = sum_vectors(xk, escalar_vector_product(dk,tk))
         k = k+1
         xk = xprox        
-    return [x0,k,xk,f(xk),gf(xk)]
+    return [x0,k,xk,f(xk),abs(f(xk)-expected_value)]
 
-def newton_method(f,d2f,gf,x0,n,y,num_interations=1000):
+def newton_method(f,d2f,gf,x0,n,y,expected_value,num_interations=1000):
     k = 0
     xk = x0
     dk = [0,0]
@@ -45,10 +45,10 @@ def newton_method(f,d2f,gf,x0,n,y,num_interations=1000):
         xprox = sum_vectors(xk, escalar_vector_product(dk,tk))
         k = k+1
         xk = xprox        
-    return (k,xk,f(xk),gf(xk),d2f(xk))    
+    return (x0,k,xk,f(xk),abs(f(xk)-expected_value))    
 
 
-def quase_newton_method(f,gf,x0,n,y):
+def quase_newton_method(f,gf,x0,n,y,expected_value):
     k = 0
     xk = x0
     dk = [0,0]
@@ -63,8 +63,7 @@ def quase_newton_method(f,gf,x0,n,y):
         p = get_p(xk,xprox)
         q = get_q(gf,xk,xprox)
         hprox = bfgs_method(hk,p,q)
-        #print(k,p,q)
         k = k+1
         xk = xprox 
         hk = hprox         
-    return (k,xk,f(xk),gf(xk))
+    return (x0,k,xk,f(xk),abs(f(xk)-expected_value))    
