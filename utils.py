@@ -28,10 +28,10 @@ def escalar_vector_product(x,e):
 
 def sum_vectors(x,y):
     """Recebe dois vetores (arrays) e retorna o vetor cujos elementos são as somas dos pares de elementos."""
-    r = []
-    for i in range(len(x)):
-        r.append(x[i] + y[i])
-    return r
+    r = [0,0]
+    r[0] = x[0]+y[0]
+    r[1] = x[1]+y[1]
+    return r    
 
 def determinant(m):
     """Recebe uma matriz 2x2 e retorna o seu determinante"""
@@ -48,3 +48,58 @@ def inverse_2d_matrix(m):
         inverse_m[1][0] = -m[1][0]/d
         inverse_m[1][1] = m[0][0]/d
     return inverse_m
+
+def matrixXVector(m,v):
+    """Vetor v é um vetor coluna"""
+    r = [0,0]
+    r[0] = m[0][0]*v[0]+m[0][1]*v[1]
+    r[1] = m[1][0]*v[0]+m[1][1]*v[1]
+    return r
+
+def vector_tXmatrix(m,v):
+    """Vetor a é um vetor linha e a matriz tem dimensão 2x2 e retorna um vetor coluna"""
+    r = [0,0]
+    r[0] = v[0]*m[0][0] + v[1]*m[1][0]
+    r[1] = v[0]*m[0][1] + v[1]*m[1][1]
+    return r    
+
+def vectorXvector_t(a,b):
+    """Vetor a é coluna e o vetor b é vetor linha"""
+    r = [[0,0],[0,0]]
+    r[0][0] = a[0]*b[0]
+    r[0][1] = a[0]*b[1]
+    r[1][0] = a[1]*b[0]
+    r[1][1] = a[1]*b[1]
+    return r    
+
+def vector_tXvector(a,b):    
+    return dot(a,b)
+
+def matrixXmatrix(m,u):
+    r = [[0,0],[0,0]]
+    r[0][0] = m[0][0]*u[0][0] + m[0][1]*u[1][0]
+    r[0][1] = m[0][0]*u[0][1] + m[0][1]*u[1][1]
+    r[1][0] = m[1][0]*u[0][0] + m[1][1]*u[1][0]
+    r[1][1] = m[1][0]*u[0][1] + m[1][1]*u[1][1]
+    return r
+
+def escalarXmatrix(m,e):
+    r = [[0,0],[0,0]]
+    for i in range(2):
+        for j in range(2):
+            r[i][j] = e*m[i][j]
+    return r
+
+def soma_matrizes(m,u):
+    r = [[0,0],[0,0]]
+    for i in range(len(m)):
+        for j in range(len(m)):
+            r[i][j] = m[i][j] + u[i][j]
+    return r
+
+def sub_matrizes(m,u):
+    r = [[0,0],[0,0]]
+    for i in range(len(m)):
+        for j in range(len(m)):
+            r[i][j] = m[i][j] - u[i][j]
+    return r

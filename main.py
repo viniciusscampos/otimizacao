@@ -11,8 +11,8 @@ x = [0.45,0.51]
 n = 0.25
 y = 0.8
 
-
-print(gradient_method(function_one,first_derivative_function_one,x,n,y))
+#print(gradient_method(function_one,first_derivative_function_one,x,n,y))
 #print(gradient_method(function_two,first_derivative_function_two,x,n,y))
 #print(function_one_second_derivative(x))
-print(newton_method(function_one,function_one_second_derivative,first_derivative_function_one,x,n,y))
+#print(newton_method(function_one,function_one_second_derivative,first_derivative_function_one,x,n,y))
+print(quase_newton_method(function_one,first_derivative_function_one,x,n,y))
