@@ -54,7 +54,7 @@ def quase_newton_method(f,gf,x0,n,y,expected_value):
     dk = [0,0]
     hk = [[1,0],[0,1]]
     p = [1,1]
-    while(not isclose(gf(xk),1e-8) and not isclose(p,1e-16)):
+    while(not isclose(gf(xk),1e-8) and not isclose(p,1e-14)):
         first_derivative = gf(xk)
         dk[0] = -(dot(hk[0],first_derivative))
         dk[1] = -(dot(hk[1],first_derivative))        

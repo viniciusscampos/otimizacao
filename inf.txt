@@ -1,0 +1,11 @@
+links imagens:
+
+função 1:
+- https://www.wolframalpha.com/input/?i=arctan+(%E2%88%92+ln+(x(1+%E2%88%92+x)y(1+%E2%88%92+y)))
+- Derivada x: https://www.wolframalpha.com/input/?i=((1+-+2+x)%2F((x+-+1)+x+(log%5E2((x+-+1)+x+(y+-+1)+y)+%2B+1))
+Derivada y: https://www.wolframalpha.com/input/?i=(1+-+2+y)%2F((y+-+1)+y+(log%5E2((x+-+1)+x+(y+-+1)+y)+%2B+1)))
+
+função 2:
+- https://www.wolframalpha.com/input/?i=arctan+(%E2%88%92+ln+(x(1+%E2%88%92+x)y(1+%E2%88%92+y)))
+- Derivada x : https://www.wolframalpha.com/input/?i=((1+-+2+x)%2F((x+-+1)+x+(log%5E2((x+-+1)+x+(y+-+1)+y)+%2B+1))
+- Derivada y: https://www.wolframalpha.com/input/?i=(1+-+2+y)%2F((y+-+1)+y+(log%5E2((x+-+1)+x+(y+-+1)+y)+%2B+1)))

@@ -15,7 +15,7 @@ function_two_second_derivative= function_two_second_derivative()
 fone_optimal_result = 1.32776
 ftwo_optimal_result = 1.22464
 
-xs_f1 = [[0.1,0.1],[0.2,0.2],[0.3,0.3],[0.45,0.51],[0.6,0.6],[0.7,0.7],[0.8,0.8]]
+xs_f1 = [[0.1,0.1],[0.15,0.15],[0.20,0.20],[0.25,0.25],[0.30,0.30],[0.35,0.35],[0.45,0.45]]
 xs_f2 = [[0.1,0.1],[0.2,0.2],[0.3,0.3],[0.45,0.51],[0.6,0.6],[0.7,0.7],[0.8,0.8]]
 
 n = 0.60
@@ -55,9 +55,3 @@ construct_gradient_csv("results/function1_qnewton.csv",gradient_csv_header,qnewt
 construct_gradient_csv("results/function2_gradient.csv",gradient_csv_header,gradient_f2)
 construct_gradient_csv("results/function2_newton.csv",gradient_csv_header,newton_f2)
 construct_gradient_csv("results/function2_qnewton.csv",gradient_csv_header,qnewton_f2)
-
-#print(gradient_method(function_two,first_derivative_function_two,x,n,y))
-#print(newton_method(function_one,function_one_second_derivative,first_derivative_function_one,x,n,y))
-#print(newton_method(function_two,function_two_second_derivative,first_derivative_function_two,x,n,y))
-#print(quase_newton_method(function_one,first_derivative_function_one,x,n,y))
-#print(quase_newton_method(function_two,first_derivative_function_two,x,n,y))

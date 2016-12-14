@@ -3,7 +3,7 @@ import csv
 def isclose(x,tol):
     """Recebe um array e uma tolerancia e retorna true se todos os elementos do array forem <= tol e false caso contrário"""
     for element in x:
-        if(element > tol):
+        if(abs(element) > tol):
             return False
     return True
 
