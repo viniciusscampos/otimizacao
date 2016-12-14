@@ -32,3 +32,19 @@ def sum_vectors(x,y):
     for i in range(len(x)):
         r.append(x[i] + y[i])
     return r
+
+def determinant(m):
+    """Recebe uma matriz 2x2 e retorna o seu determinante"""
+    r = (m[0][0]*m[1][1])-(m[0][1]*m[1][0])
+    return r
+
+def inverse_2d_matrix(m):
+    """Recebe uma matriz de 2 dimensões e retorna a matriz inversa"""
+    inverse_m = [[0,0]]*2
+    d = determinant(m)
+    if(d!=0):
+        inverse_m[0][0] = m[1][1]/d
+        inverse_m[0][1] = -m[0][1]/d
+        inverse_m[1][0] = -m[1][0]/d
+        inverse_m[1][1] = m[0][0]/d
+    return inverse_m
