@@ -21,22 +21,22 @@ def get_q(gf,x_a,x_p):
     """Recebe dois vetores (x_k e x_k+1) e a derivada da função e retorna um vetor que é a diferença entre as derivadas."""
     return sum_vectors(gf(x_p),gf(x_a))
     
-def gradient_method(f,gf,x0,n,y):
+def gradient_method(f,gf,x0,n,y,num_interations=1000,tol=1e-8):
     k = 0
     xk = x0
-    while(not isclose(gf(xk),1e-8) and k<1000):
+    while(not isclose(gf(xk),tol) and k<num_interations):
         dk = invert_array_signal(gf(xk))
         tk = armijo(f,gf,xk,dk,n,y)
         xprox = sum_vectors(xk, escalar_vector_product(dk,tk))
         k = k+1
         xk = xprox        
-    return (k,xk,f(xk),gf(xk))    
+    return [x0,k,xk,f(xk),gf(xk)]
 
-def newton_method(f,d2f,gf,x0,n,y):
+def newton_method(f,d2f,gf,x0,n,y,num_interations=1000):
     k = 0
     xk = x0
     dk = [0,0]
-    while(not isclose(gf(xk),1e-8) and k<200):
+    while(not isclose(gf(xk),1e-8) and k<num_interations):
         inverse_hesian = inverse_2d_matrix(d2f(xk))
         first_derivative = gf(xk)
         dk[0] = -(dot(inverse_hesian[0],first_derivative))

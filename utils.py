@@ -103,3 +103,10 @@ def sub_matrizes(m,u):
         for j in range(len(m)):
             r[i][j] = m[i][j] - u[i][j]
     return r
+
+def csvDictionaryConstruct(a,b):
+    """Função criada para auxiliar na criação das tabelas csv com os resultados obtidos."""
+    d = {}
+    for i in range(len(a)):
+        d[a[i]] = b[i]
+    return d 
