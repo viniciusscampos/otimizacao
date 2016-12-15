@@ -14,11 +14,11 @@ def bfgs_method(hk,p,q):
     return r
 
 def get_p(x_a,x_p):
-    """Recebe dois vetores (x_k e x_k+1) retorna um vetor que é a diferença entre eles."""
+    """Recebe dois vetores (x_k e x_k+1) retorna um vetor que eh a diferenca entre eles."""
     return sum_vectors(x_p, invert_array_signal(x_a))
     
 def get_q(gf,x_a,x_p):
-    """Recebe dois vetores (x_k e x_k+1) e a derivada da função e retorna um vetor que é a diferença entre as derivadas."""
+    """Recebe dois vetores (x_k e x_k+1) e a derivada da funcao e retorna um vetor que eh a diferenca entre as derivadas."""
     return sum_vectors(gf(x_p),gf(x_a))
     
 def gradient_method(f,gf,x0,n,y,expected_value,num_interations=1000):
